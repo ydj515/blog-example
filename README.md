@@ -10,3 +10,4 @@
 ## TOC
 - bucket4j([link](https://github.com/ydj515/blog-example/tree/main/bucket4j-example))
 - application runner & event([link](https://github.com/ydj515/blog-example/tree/main/runner-example))
+- spring warm up([link](https://github.com/ydj515/blog-example/tree/main/warmup-example))
