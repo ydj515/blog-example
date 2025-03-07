@@ -16,8 +16,15 @@ class UserController(
 
     @GetMapping("")
     fun getUsers(): ResponseEntity<List<UserResponse>> {
+        val startTime = System.nanoTime()
         val results = userFacade.getUsers()
         val response = results.map { user -> user.toResponse() }
+
+        val endTime = System.nanoTime()
+        val elapsedTime = (endTime - startTime) / 1_000_000.0
+
+        println("실행시간: %.3f ms".format(elapsedTime))
+
         return ResponseEntity(response, HttpStatus.OK)
     }
 }
