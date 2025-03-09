@@ -1,4 +1,7 @@
 spring:
+#  mvc:
+#    servlet:
+#      load-on-startup: 1
   application:
     name: warmup-example
   datasource:
@@ -22,7 +25,7 @@ logging:
     sql: debug
     org.hibernate.sql: debug
     org:
-      springframework: debug
+      springframework: info
       hibernate:
         type:
           descriptor:
