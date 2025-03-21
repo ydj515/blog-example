@@ -13,4 +13,3 @@
 - spring warm up([link](https://github.com/ydj515/blog-example/tree/main/warmup-example))
 - enum-bean-example([link](https://github.com/ydj515/blog-example/tree/main/enum-bean-example))
 - coroutines-basic-example([link](https://github.com/ydj515/blog-example/tree/main/coroutines-basic-example))
-- mongodb-example-with-go([link](https://github.com/ydj515/blog-example/tree/main/mongodb-example-with-go))
