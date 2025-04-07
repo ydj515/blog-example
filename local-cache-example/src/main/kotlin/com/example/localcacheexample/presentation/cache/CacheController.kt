@@ -11,7 +11,7 @@ class CacheController(
     private val cacheManager: CacheManager
 ) {
 
-    @GetMapping("")
+    @GetMapping("/local")
     // TTL 만료 후 조회해보면 key가 있는 것 처럼 보인다. Caffeine은 lazy eviction 방식이기 때문.
     fun getAllCacheContents(): Map<String, Map<Any, Any>> {
         val result = mutableMapOf<String, Map<Any, Any>>()
