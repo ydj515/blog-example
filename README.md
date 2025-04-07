@@ -13,3 +13,5 @@
 - spring warm up([link](https://github.com/ydj515/blog-example/tree/main/warmup-example))
 - enum-bean-example([link](https://github.com/ydj515/blog-example/tree/main/enum-bean-example))
 - coroutines-basic-example([link](https://github.com/ydj515/blog-example/tree/main/coroutines-basic-example))
+- local-cache-example([link](https://github.com/ydj515/blog-example/tree/main/local-cache-example))
+- global-cache-example([link](https://github.com/ydj515/blog-example/tree/main/global-cache-example))
