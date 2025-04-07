@@ -1,0 +1,44 @@
+### 전체 상품 조회
+GET {{host}}/products
+Content-Type: application/json
+
+###
+
+### 단일 상품 조회
+GET {{host}}/products/1
+
+Content-Type: application/json
+
+###
+
+### 이름으로 상품 검색
+GET {{host}}/products/search?name=A
+Content-Type: application/json
+
+###
+
+### 단일 상품 등록
+POST {{host}}/products
+Content-Type: application/json
+
+{
+  "name": "ZZZZZ",
+  "price": 12000
+}
+
+###
+
+### 여러 상품 일괄 등록
+POST {{host}}/products/bulk
+Content-Type: application/json
+
+[
+  {
+    "name": "testProduct1",
+    "price": 11000
+  },
+  {
+    "name": "testProduct2",
+    "price": 15000
+  }
+]
