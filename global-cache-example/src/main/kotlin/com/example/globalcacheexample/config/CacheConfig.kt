@@ -23,11 +23,6 @@ class CacheConfig {
     @Bean
     fun cacheManager(redisConnectionFactory: RedisConnectionFactory): CacheManager {
 
-        val objectMapper = jacksonObjectMapper()
-            .registerModule(JavaTimeModule())
-            .registerModule(KotlinModule.Builder().build())
-            .findAndRegisterModules()
-
         val config = RedisCacheConfiguration.defaultCacheConfig()
             .entryTtl(Duration.ofSeconds(10))
             .disableCachingNullValues()
@@ -35,10 +30,13 @@ class CacheConfig {
                 RedisSerializationContext.SerializationPair.fromSerializer(StringRedisSerializer())
             )
             .serializeValuesWith(
-//                RedisSerializationContext.SerializationPair.fromSerializer(StringRedisSerializer())
                 RedisSerializationContext.SerializationPair.fromSerializer(
-//                    Jackson2JsonRedisSerializer(objectMapper, Any::class.java)
-                    GenericJackson2JsonRedisSerializer()
+                    GenericJackson2JsonRedisSerializer() // class명까지 데이터가 들어감을 주의
+//                    {
+//                        "product": {
+//                        "product::2": "{\"@class\":\"com.example.globalcacheexample.domain.product.service.ProductInfo\",\"name\":\"A\",\"price\":[\"java.math.BigDecimal\",1.00]}"
+//                    }
+//                    }
                 )
             )
 
