@@ -2,7 +2,6 @@ package com.example.warmupexample.presentation.controller.user
 
 import com.example.warmupexample.application.facade.user.UserFacade
 import com.example.warmupexample.application.facade.user.toResponse
-import com.example.warmupexample.warmup.Warmup
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/users")
-@Warmup
 class UserController(
     private val userFacade: UserFacade,
 ) {
