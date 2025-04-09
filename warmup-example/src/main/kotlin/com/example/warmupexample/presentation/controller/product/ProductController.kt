@@ -2,6 +2,7 @@ package com.example.warmupexample.presentation.controller.product
 
 import com.example.warmupexample.application.facade.product.ProductFacade
 import com.example.warmupexample.application.facade.product.toResponse
+import com.example.warmupexample.warmup.Warmup
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -14,6 +15,7 @@ class ProductController(
     private val productFacade: ProductFacade
 ) {
     @GetMapping("")
+    @Warmup
     fun getProducts(): ResponseEntity<List<ProductResponse>> {
         val startTime = System.nanoTime()
         val result = productFacade.getProducts()
