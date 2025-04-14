@@ -15,8 +15,9 @@ class CacheConfig {
     @Bean
     fun caffeineConfig(): Caffeine<Any, Any> {
         return Caffeine.newBuilder()
-            .expireAfterWrite(10, TimeUnit.SECONDS)
+            .expireAfterWrite(100, TimeUnit.SECONDS)
             .maximumSize(1000)
+            .recordStats()
     }
 
     @Bean

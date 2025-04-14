@@ -29,4 +29,27 @@ class CacheController(
 
         return result
     }
+
+    @GetMapping("/local/stats")
+    fun getCacheStats(): List<NamedCacheStat> {
+        return cacheManager.cacheNames.mapNotNull { cacheName ->
+            val cache = cacheManager.getCache(cacheName) ?: return@mapNotNull null
+            val nativeCache = cache.nativeCache
+
+            if (nativeCache is com.github.benmanes.caffeine.cache.Cache<*, *>) {
+                val stats = nativeCache.stats()
+                NamedCacheStat(
+                    name = cacheName,
+                    stats = CacheStat(
+                        hitCount = stats.hitCount(),
+                        missCount = stats.missCount(),
+                        hitRate = stats.hitRate(),
+                        evictionCount = stats.evictionCount(),
+                        loadSuccessCount = stats.loadSuccessCount(),
+                        loadFailureCount = stats.loadFailureCount()
+                    )
+                )
+            } else null
+        }
+    }
 }

@@ -1,0 +1,101 @@
+### local cache 확인
+GET {{host}}/caches/local
+Content-Type: application/json
+
+//{
+//  "product": {
+//    "1": {
+//      "name": "A",
+//      "price": 1
+//    }
+//  },
+//  "productByName": {
+//    "A": [
+//      {
+//        "name": "A",
+//        "price": 1
+//      },
+//      {
+//        "name": "A",
+//        "price": 1
+//      }
+//    ]
+//  },
+//  "productList": {
+//    "SimpleKey []": [
+//      {
+//        "name": "A",
+//        "price": 1
+//      },
+//      {
+//        "name": "A",
+//        "price": 1
+//      },
+//      {
+//        "name": "B",
+//        "price": 1
+//      },
+//      {
+//        "name": "B",
+//        "price": 1
+//      },
+//      {
+//        "name": "B",
+//        "price": 1
+//      },
+//      {
+//        "name": "C",
+//        "price": 1
+//      },
+//      {
+//        "name": "D",
+//        "price": 1
+//      },
+//      {
+//        "name": "E",
+//        "price": 1
+//      }
+//    ]
+//  }
+//}
+###
+
+### local cache stat 확인
+GET {{host}}/caches/local/stats
+Content-Type: application/json
+
+//[
+//  {
+//    "name": "product",
+//    "stats": {
+//      "hitCount": 0,
+//      "missCount": 1,
+//      "hitRate": 0,
+//      "evictionCount": 0,
+//      "loadSuccessCount": 0,
+//      "loadFailureCount": 0
+//    }
+//  },
+//  {
+//    "name": "productByName",
+//    "stats": {
+//      "hitCount": 0,
+//      "missCount": 1,
+//      "hitRate": 0,
+//      "evictionCount": 0,
+//      "loadSuccessCount": 0,
+//      "loadFailureCount": 0
+//    }
+//  },
+//  {
+//    "name": "productList",
+//    "stats": {
+//      "hitCount": 4,
+//      "missCount": 1,
+//      "hitRate": 0.8,
+//      "evictionCount": 0,
+//      "loadSuccessCount": 0,
+//      "loadFailureCount": 0
+//    }
+//  }
+//]
