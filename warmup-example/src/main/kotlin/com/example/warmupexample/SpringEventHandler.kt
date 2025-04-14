@@ -14,6 +14,7 @@ class SpringEventHandler(
     fun onApplicationReadyEvent(event: ApplicationReadyEvent?) {
         println("ApplicationReadyEvent!")
         WarmupRunner(applicationContext).run()
+//        WarmupRunner(applicationContext).runAsync()
     }
 }
 

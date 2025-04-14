@@ -16,4 +16,14 @@ class WarmupRunner(
         executor.executeWarmups(warmups)
         println("All warmup tasks completed.")
     }
+
+    fun runAsync() {
+        val scanner = WarmupScanner(applicationContext)
+        val executor = WarmupExecutor()
+
+        println("Start warmup tasks (async)...")
+        val warmups = scanner.scan()
+        executor.executeWarmupsAsync(warmups)
+        println("Warmup tasks launched asynchronously.")
+    }
 }
