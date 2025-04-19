@@ -12,4 +12,10 @@ class ProductFacade(
         val products = productService.getProducts()
         return products.map { it.toResult() }
     }
+
+    fun create(criteria: ProductCreateCriteria): ProductResult {
+        val command = criteria.toCommand()
+        val info = productService.createProduct(command)
+        return info.toResult()
+    }
 }

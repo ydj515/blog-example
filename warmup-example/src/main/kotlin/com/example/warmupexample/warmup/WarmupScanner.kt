@@ -18,7 +18,7 @@ class WarmupScanner(private val applicationContext: ApplicationContext) {
             // 클래스에 @Warmup이 붙어있으면 모든 public method 추가
             if (targetClass.isAnnotationPresent(Warmup::class.java)) {
                 for (method in targetClass.methods) {
-                    if (method.declaringClass != Any::class.java && method.parameterCount == 0) { // 테스트를 위해 파라미터 없는것만 filtering
+                    if (method.declaringClass != Any::class.java && method.parameterCount == 0) { // 파라미터 없는것만 filtering
                         warmups.add(WarmupTarget(bean, method.name) {
                             method.invoke(bean)
                         })
@@ -28,11 +28,25 @@ class WarmupScanner(private val applicationContext: ApplicationContext) {
 
             // 메서드에 @Warmup이 붙은 경우
             for (method in targetClass.declaredMethods) {
-                if (method.getAnnotation(Warmup::class.java) != null && method.parameterCount == 0) { // 테스트를 위해 파라미터 없는것만 filtering
+                val annotation = method.getAnnotation(Warmup::class.java)
+                if (annotation != null && method.parameterCount == 0) { // 파라미터 없는것만 filtering
                     method.isAccessible = true
                     warmups.add(WarmupTarget(bean, method.name) {
                         method.invoke(bean)
                     })
+                }
+
+
+                if (annotation != null) { // 파라미터 있는것만 filtering
+                    val args = WarmupMetaRegistry.getArgs(annotation.metaKey)
+                    if (args != null) {
+                        method.isAccessible = true
+                        warmups.add(WarmupTarget(bean, method.name) {
+                            method.invoke(bean, *args)
+                        })
+                    } else {
+                        println("No args found for metaKey: ${annotation.metaKey}")
+                    }
                 }
             }
         }

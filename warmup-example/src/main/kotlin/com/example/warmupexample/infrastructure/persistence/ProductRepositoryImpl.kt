@@ -13,4 +13,8 @@ class ProductRepositoryImpl(
     override fun getProducts(): List<Product> {
         return productJpaRepository.findAll()
     }
+
+    override fun createProduct(product: Product): Product {
+        return productJpaRepository.save(product)
+    }
 }
