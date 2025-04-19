@@ -36,7 +36,6 @@ class WarmupScanner(private val applicationContext: ApplicationContext) {
                     })
                 }
 
-
                 if (annotation != null) { // 파라미터 있는것만 filtering
                     val args = WarmupMetaRegistry.getArgs(annotation.metaKey)
                     if (args != null) {
