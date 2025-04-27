@@ -1,0 +1,25 @@
+###
+POST http://localhost:8080/list-add-left
+Content-Type: application/json
+
+{
+  "baseRequest": {
+    "key": "list key"
+  },
+  "name": "1"
+}
+
+###
+POST http://localhost:8080/list-add-left
+Content-Type: application/json
+
+{
+  "baseRequest": {
+    "key": "list key"
+  },
+  "name": "1"
+}
+
+###
+GET http://localhost:8080/all?key=list key
+Content-Type: application/json
