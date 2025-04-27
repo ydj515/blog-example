@@ -1,6 +1,6 @@
 package com.example.webfluxwithredisexample.infrastructure.repository;
 
-import com.example.webfluxwithredisexample.infrastructure.config.ValueWithTTL;
+import com.example.webfluxwithredisexample.domain.ValueWithTTL;
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

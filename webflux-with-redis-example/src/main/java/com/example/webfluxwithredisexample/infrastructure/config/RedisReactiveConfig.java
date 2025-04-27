@@ -2,6 +2,9 @@ package com.example.webfluxwithredisexample.infrastructure.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
+import org.redisson.Redisson;
+import org.redisson.api.RedissonReactiveClient;
+import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -68,6 +71,19 @@ public class RedisReactiveConfig {
                 .build();
 
         return new ReactiveRedisTemplate<>(factory, context);
+    }
+
+    @Bean
+    public RedissonReactiveClient redissonReactiveClient() {
+        String address = String.format("redis://%s:%d", host, port);
+
+        Config config = new Config();
+        config.useSingleServer()
+                .setAddress(address)
+//                .setPassword(password.isEmpty() ? null : password)
+        ;
+
+        return Redisson.create(config).reactive();
     }
 
 }

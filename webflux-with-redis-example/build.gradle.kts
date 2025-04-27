@@ -35,6 +35,7 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
     /* redis */
     implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+    implementation("org.redisson:redisson:3.27.2")
 
     /* gson */
     implementation("com.google.code.gson:gson:2.11.0")

@@ -1,4 +1,4 @@
-package com.example.webfluxwithredisexample.infrastructure.config;
+package com.example.webfluxwithredisexample.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
