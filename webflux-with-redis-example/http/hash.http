@@ -1,0 +1,15 @@
+###
+POST http://localhost:8080/put-hashes
+Content-Type: application/json
+
+{
+  "baseRequest": {
+    "key": "hash key"
+  },
+  "field": "one",
+  "name": "field one"
+}
+
+###
+GET http://localhost:8080/get-hash-value?key=hash key&field=one
+Content-Type: application/json
