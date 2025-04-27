@@ -1,5 +1,5 @@
-# Blog example
-> [blog](https://ydj515.github.io/)에서 사용한 예제 코드 입니다.
+# sample repository example
+> 필요해서 만든 example과 [blog](https://ydj515.github.io/)에서 사용한 예제 코드 입니다.
 > 사용된 stack 은 아래에 적혀있습니다.
 
 ## Stack
