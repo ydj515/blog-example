@@ -19,15 +19,15 @@ import java.util.Map;
 public class StringAsyncService {
     private final StringRepository redis;
 
-    public Mono<Void> Set(StringRequest req) {
+    public Mono<Void> set(StringRequest req) {
         String key = req.baseRequest().key();
         StringModel newModel = new StringModel(key, req.name());
 
         return redis.setData(key, newModel)
-                .then(); // Boolean 무시하고 Mono<Void>로
+                .then();
     }
 
-    public Mono<StringResponse> Get(String key) {
+    public Mono<StringResponse> get(String key) {
         return redis.getData(key, StringModel.class)
                 .map(result -> {
                     List<StringModel> res = new ArrayList<>();
@@ -39,7 +39,7 @@ public class StringAsyncService {
                 .switchIfEmpty(Mono.just(new StringResponse(new ArrayList<>())));
     }
 
-    public Mono<Void> MultiSet(MultiStringRequest req) {
+    public Mono<Void> multiSet(MultiStringRequest req) {
         Map<String, Object> dataMap = new HashMap<>();
 
         for (int i = 0; i < req.names().length; i++) {
@@ -51,7 +51,7 @@ public class StringAsyncService {
         }
 
         return redis.multiSetData(dataMap)
-                .then(); // Boolean 결과를 무시하고 Mono<Void>로 변환
+                .then();
     }
 }
 

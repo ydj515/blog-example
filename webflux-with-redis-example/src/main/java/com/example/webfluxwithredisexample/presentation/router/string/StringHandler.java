@@ -14,20 +14,20 @@ public class StringHandler {
 
     public Mono<ServerResponse> setString(ServerRequest request) {
         return request.bodyToMono(StringRequest.class)
-                .flatMap(stringService::Set)
+                .flatMap(stringService::set)
                 .then(ServerResponse.ok().build());
     }
 
     public Mono<ServerResponse> getString(ServerRequest request) {
         String key = request.queryParam("key")
                 .orElseThrow(() -> new IllegalArgumentException("Missing query param: key"));
-        Mono<StringResponse> response = stringService.Get(key);
+        Mono<StringResponse> response = stringService.get(key);
         return ServerResponse.ok().body(response, StringResponse.class);
     }
 
     public Mono<ServerResponse> multiSetString(ServerRequest request) {
         return request.bodyToMono(MultiStringRequest.class)
-                .flatMap(stringService::MultiSet)
+                .flatMap(stringService::multiSet)
                 .then(ServerResponse.ok().build());
     }
 }
