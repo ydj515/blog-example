@@ -1,4 +1,4 @@
-package com.example.webfluxwithredisexample.presentation.router.string;
+package com.example.webfluxwithredisexample.presentation.router.sortedset;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,13 +10,13 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 
 @Configuration
-public class StringRouter {
+public class SortedSetRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> stringRoute(StringHandler handler) {
+    public RouterFunction<ServerResponse> sortedSetRoute(SortedSetHandler handler) {
         return RouterFunctions
-                .route(POST("/set-string-collection"), handler::setString)
-                .andRoute(GET("/get-string-collection"), handler::getString)
-                .andRoute(POST("/multi-set-collection"), handler::multiSetString);
+                .route(POST("/sorted-set--collection"), handler::setSortedSet)
+                .andRoute(GET("/get-sorted-set-by-range"), handler::getSortedSet)
+                .andRoute(GET("/get-sorted-set-by-top"), handler::getTopN);
     }
 }

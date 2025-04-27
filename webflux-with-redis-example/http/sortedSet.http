@@ -1,0 +1,19 @@
+###
+POST http://localhost:8080/sorted-set--collection
+Content-Type: application/json
+
+{
+  "baseRequest": {
+    "key": "sortedset key"
+  },
+  "name": "one",
+  "score": "1"
+}
+
+###
+GET http://localhost:8080/get-sorted-set-by-range?key=sortedset key&min=0&max=10
+Content-Type: application/json
+
+###
+GET http://localhost:8080/get-sorted-set-by-top?key=sortedset key&n=5
+Content-Type: application/json
