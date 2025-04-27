@@ -1,0 +1,26 @@
+###
+POST http://localhost:8080/set-string-collection
+Content-Type: application/json
+
+{
+  "baseRequest": {
+    "key": "test_one"
+  },
+  "name": "1"
+}
+
+###
+GET http://localhost:8080/get-string-collection?key=test_one
+Content-Type: application/json
+
+
+###
+POST http://localhost:8080/multi-set-collection
+Content-Type: application/json
+
+{
+  "baseRequest": {
+    "key": "test_two"
+  },
+  "names": ["a", "b", "c"]
+}
