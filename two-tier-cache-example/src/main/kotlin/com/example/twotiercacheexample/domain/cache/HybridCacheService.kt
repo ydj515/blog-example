@@ -67,7 +67,7 @@ class HybridCacheService(
         // 캐시를 "지우기" (삭제)
         // 데이터 일관성을 보장할 수 있지만 성능에 약간의 부담이 있을 수 있습니다.
         // 데이터 변경이 자주 발생하고, 정확한 데이터 일관성이 중요한 경우
-        val caffeineCache = caffeineCacheManager.getCache("yourCacheName")
+        val caffeineCache = caffeineCacheManager.getCache(key)
         caffeineCache?.evict(key)
         redisTemplate.delete(key)
 
