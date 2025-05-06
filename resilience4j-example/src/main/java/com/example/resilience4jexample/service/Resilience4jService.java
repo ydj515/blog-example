@@ -63,7 +63,7 @@ public class Resilience4jService {
         Supplier<CompletionStage<String>> rlWrapped =
                 RateLimiter.decorateCompletionStage(rateLimiter, cbWrapped);
 
-        // ✅ Retry (마지막으로 wrapping)
+        // Retry (마지막으로 wrapping)
         Supplier<CompletionStage<String>> retryWrapped =
                 Retry.decorateCompletionStage(retry, retryScheduler, rlWrapped);
 
