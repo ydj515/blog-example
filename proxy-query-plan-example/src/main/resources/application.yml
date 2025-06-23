@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+  name: proxy-query-plan-example
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: test
+    password: test123!
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.boot.autoconfigure.jdbc: DEBUG
